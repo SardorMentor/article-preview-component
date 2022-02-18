@@ -1,0 +1,197 @@
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  overflow: hidden;
+
+  @include breakpoint(medium) {
+    max-width: 730px;
+    flex-direction: row;
+    overflow: visible;
+  }
+
+  &-image {
+    img {
+      display: block;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+
+      @include breakpoint(medium) {
+        width: 285px;
+        height: 100%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 8px;
+      }
+    }
+  }
+
+  &-wrapper {
+    @include breakpoint(medium) {
+      padding: 32px 40px;
+    }
+  }
+
+  &-body {
+    padding: 36px 32px 20px;
+
+    @include breakpoint(medium) {
+      padding: 0;
+    }
+
+    &__title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.2px;
+      color: $veryDarkGrayishBlue;
+      margin-bottom: 12px;
+
+      @include breakpoint(medium) {
+        font-size: 20px;
+        line-height: 1.4;
+      }
+    }
+
+    &__description {
+      line-height: 1.55;
+      letter-spacing: 0.1px;
+      color: $desaturatedDarkBlue;
+
+      @include breakpoint(medium) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &-footer {
+    display: flex;
+    align-items: center;
+    padding: 12px 32px 20px;
+
+    @include breakpoint(medium) {
+      position: relative;
+      padding: 0;
+    }
+
+    &__user {
+      display: flex;
+    }
+
+    &__image {
+      img {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 16px;
+      }
+    }
+
+    &__title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1px;
+      color: $veryDarkGrayishBlue;
+      margin-bottom: 4px;
+    }
+
+    &__subtitle {
+      font-style: 12px;
+      font-weight: 500;
+      letter-spacing: 0.7px;
+      color: $desaturatedDarkBlue;
+    }
+
+    &__action {
+      margin-left: auto;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      background-color: $lightGrayishBlue;
+      border-radius: 50%;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    &__share {
+      display: none;
+
+      &-title {
+        letter-spacing: 5px;
+        color: $desaturatedDarkBlue;
+      }
+
+      &-icons {
+        display: flex;
+        align-items: center;
+        a img {
+          display: block;
+          margin: 0 8px;
+        }
+      }
+    }
+
+    &.share {
+      padding: 16px 32px;
+      background-color: $veryDarkGrayishBlue;
+
+      @include breakpoint(medium) {
+        padding: 0;
+        background-color: transparent;
+      }
+
+      .card-footer {
+        &__user {
+          display: none;
+
+          @include breakpoint(medium) {
+            display: flex;
+          }
+        }
+
+        &__share {
+          display: flex;
+          align-items: center;
+
+          @include breakpoint(medium) {
+            position: absolute;
+            top: -80px;
+            right: 16px;
+            transform: translateX(50%);
+            background-color: $veryDarkGrayishBlue;
+            padding: 18px 36px 17px;
+            border-radius: 9px;
+
+            &::after {
+              content: "";
+
+              display: block;
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform: translate(-50%, 100%);
+              width: 0;
+              height: 0;
+              border-left: 12px solid transparent;
+              border-right: 12px solid transparent;
+              border-top: 12px solid $veryDarkGrayishBlue;
+            }
+          }
+        }
+
+        &__action {
+          background-color: $desaturatedDarkBlue;
+          svg path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+}
